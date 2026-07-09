@@ -63,7 +63,7 @@ nav.scrolled{padding:12px 48px;box-shadow:0 4px 28px rgba(15,42,31,.08);}
 
 .hero-photo-wrap{position:relative;aspect-ratio:4/5;background:#fff;border-radius:36px;box-shadow:var(--shadow);padding:28px;display:flex;align-items:center;justify-content:center;}
 .hero-photo{width:100%;height:100%;object-fit:contain;}
-.hero-logo-svg{width:100%;height:auto;display:block;}
+.hero-logo-img{width:100%;height:100%;object-fit:contain;display:block;}
 @keyframes blobshift{0%,100%{border-radius:62% 38% 41% 59% / 48% 42% 58% 52%;}50%{border-radius:42% 58% 64% 36% / 58% 38% 62% 42%;}}
 .hero-badge{position:absolute;bottom:14px;left:-28px;background:var(--tinta);color:var(--branco);padding:16px 22px;border-radius:18px;box-shadow:0 16px 36px rgba(15,42,31,.3);display:flex;align-items:center;gap:12px;}
 .hero-badge .stars{color:var(--sol);font-size:1rem;letter-spacing:1px;}
@@ -104,11 +104,11 @@ section{padding:96px 48px;}
 .room{background:var(--branco);border-radius:var(--r);overflow:hidden;transition:transform .3s,box-shadow .3s;}
 .room:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
 .room.feat{grid-column:span 2;}
-.room-img{position:relative;overflow:hidden;}
+.room-img{position:relative;overflow:hidden;background:var(--pedra);}
 .room:not(.feat) .room-img{aspect-ratio:4/3;}
 .room.feat .room-img{aspect-ratio:16/9;}
 .room-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
-.room:hover .room-img img{transform:scale(1.07);}
+.room:hover .room-img img{transform:none;}
 .room-tag{position:absolute;top:14px;left:14px;background:var(--tinta);color:var(--branco);font-size:.7rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:6px 13px;border-radius:50px;}
 .room-tag.sol{background:var(--sol);color:var(--tinta);}
 .room-tag.mata{background:var(--mata);}
@@ -259,10 +259,8 @@ footer{background:var(--tinta);color:rgba(255,254,250,.65);padding:64px 48px 28p
 .room-slider{position:relative;width:100%;height:100%;overflow:hidden;}
 .room-slides{display:flex;height:100%;transition:transform .4s ease;will-change:transform;}
 .room-slide{min-width:100%;height:100%;flex-shrink:0;}
-.room-slide img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
-.slide-prev,.slide-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,254,250,.92);border:none;width:32px;height:32px;border-radius:50%;cursor:pointer;z-index:10;font-size:1.1rem;color:var(--tinta);display:flex;align-items:center;justify-content:center;transition:.2s;box-shadow:0 2px 10px rgba(0,0,0,.18);opacity:.82;}
-.slide-prev{left:8px;}.slide-next{right:8px;}
-.slide-prev:hover,.slide-next:hover{background:var(--branco);transform:translateY(-50%) scale(1.1);}
+.room-slide img{width:100%;height:100%;object-fit:contain;background:var(--pedra);transition:opacity .45s ease;}
+.slide-prev,.slide-next{display:none;}
 .slide-dots-r{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);display:flex;gap:5px;z-index:10;}
 .sdot{width:6px;height:6px;border-radius:50%;background:rgba(255,254,250,.5);border:none;cursor:pointer;transition:.2s;padding:0;}
 .sdot.active{background:var(--branco);transform:scale(1.3);}
@@ -311,36 +309,12 @@ footer{background:var(--tinta);color:rgba(255,254,250,.65);padding:64px 48px 28p
       <div class="hero-trust reveal r-d4">
         <div class="trust-item"><span class="dot">●</span> Pet friendly</div>
         <div class="trust-item"><span class="dot">●</span> Wi-Fi grátis</div>
-        <div class="trust-item"><span class="dot">●</span> Yoga semanal</div>
+        <div class="trust-item"><span class="dot">●</span> Yoga sob demanda</div>
       </div>
     </div>
     <div class="hero-photo-wrap reveal r-d2">
       <div class="hero-dot"></div>
-      <svg class="hero-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 480" role="img" aria-label="Casinha Tropical Homestay">
-        <!-- Yellow outer triangle -->
-        <polygon points="200,12 388,350 12,350" fill="#FFE100"/>
-        <!-- Purple inner triangle -->
-        <polygon points="200,58 352,326 48,326" fill="#B570C4"/>
-        <!-- Teal island mound -->
-        <ellipse cx="200" cy="312" rx="78" ry="23" fill="#60CCCE"/>
-        <!-- Left palm trunk -->
-        <path d="M188,305 C181,272 169,232 161,193" stroke="#60CCCE" stroke-width="13" fill="none" stroke-linecap="round"/>
-        <!-- Right palm trunk -->
-        <path d="M212,305 C219,272 231,232 239,193" stroke="#60CCCE" stroke-width="13" fill="none" stroke-linecap="round"/>
-        <!-- Left palm fronds -->
-        <path d="M161,193 C147,175 131,164 113,160" stroke="#60CCCE" stroke-width="9" fill="none" stroke-linecap="round"/>
-        <path d="M161,193 C154,171 152,149 155,131" stroke="#60CCCE" stroke-width="9" fill="none" stroke-linecap="round"/>
-        <path d="M161,193 C170,172 178,155 183,139" stroke="#60CCCE" stroke-width="9" fill="none" stroke-linecap="round"/>
-        <!-- Right palm fronds -->
-        <path d="M239,193 C253,175 269,164 287,160" stroke="#60CCCE" stroke-width="9" fill="none" stroke-linecap="round"/>
-        <path d="M239,193 C246,171 248,149 245,131" stroke="#60CCCE" stroke-width="9" fill="none" stroke-linecap="round"/>
-        <path d="M239,193 C230,172 222,155 217,139" stroke="#60CCCE" stroke-width="9" fill="none" stroke-linecap="round"/>
-        <!-- Casinha Tropical -->
-        <text x="200" y="408" text-anchor="middle" font-family="'Dancing Script', cursive" font-weight="700" font-size="44" fill="#111111">Casinha Tropical</text>
-        <!-- HOMESTAY -->
-        <text x="200" y="452" text-anchor="middle" font-family="'Work Sans', Arial, sans-serif" font-weight="700" font-size="19" fill="#111111" letter-spacing="5">HOMESTAY</text>
-      </svg>
-      </div>
+      <img class="hero-logo-img" src="casinha-logo.png" alt="Casinha Tropical Homestay">
     </div>
   </div>
 </section>
@@ -401,27 +375,19 @@ footer{background:var(--tinta);color:rgba(255,254,250,.65);padding:64px 48px 28p
               <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1OteoEz1hkCnPBuH0t_sFJ7JAOlWGQvHK&sz=w1200" alt="Casal Premium" loading="lazy"></div>
               <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=192UhjkDCR8EIUUuLAX4w19c0lZYUmWhh&sz=w1200" alt="Casal Premium" loading="lazy"></div>
               <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1DFpgnt2ST7sJm8CpWiSmAaR9yCccfYUn&sz=w1200" alt="Casal Premium" loading="lazy"></div>
-              <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1TDkioAh0o8bfZIBq1VxCu5KpGi265GyU&sz=w1200" alt="Casal Premium" loading="lazy"></div>
               <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=15lMSig3_PfYzE2eW5uK2fAa4S0zH08xU&sz=w1200" alt="Casal Premium" loading="lazy"></div>
               <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=18r1o1_NIwicm2555aB2P-Skjcls_am5f&sz=w1200" alt="Casal Premium" loading="lazy"></div>
               <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1HdIliaUtP8L8ds3bWCwN9ZWBPmZolA4N&sz=w1200" alt="Casal Premium" loading="lazy"></div>
-              <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1UEa-7rRGl0MT2rTN0EMl98SjV3tltXbJ&sz=w1200" alt="Casal Premium" loading="lazy"></div>
-              <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1VEI8NyyZ5E9bAoUEHV5uAs80mtRvYjzw&sz=w1200" alt="Casal Premium" loading="lazy"></div>
-              <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1odilzxKMVn31N2Tpa5UsK2aDwxmhWrzn&sz=w1200" alt="Casal Premium" loading="lazy"></div>
               <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1GpUY1NZTp2-H3-GTxOo053Qv3kx_qmLG&sz=w1200" alt="Casal Premium" loading="lazy"></div>
-              <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1dQwyqas87DJLeZzgZUirrreE-4QMAySR&sz=w1200" alt="Casal Premium" loading="lazy"></div>
               <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1ZINUQZbxap3rRs1_xb3Jrvq3Sk5ABw3d&sz=w1200" alt="Casal Premium" loading="lazy"></div>
-              <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=15yH0vsakfV6Z_wXgzPodGC9CkKrJNrP_&sz=w1200" alt="Casal Premium" loading="lazy"></div>
               <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1eaEHiprf_9HhcWejDbeOI83gUYCkxQoi&sz=w1200" alt="Casal Premium" loading="lazy"></div>
               <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1vuoHGoEYTtSb7V1mgoVrqjUPKjU3_gXv&sz=w1200" alt="Casal Premium" loading="lazy"></div>
-              <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1QhRGx9E1eEl_vMBglshXka6XuqIJZiDd&sz=w1200" alt="Casal Premium" loading="lazy"></div>
-              <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1HtuD3QNLOr-WoSPR41mu_jZUzlz2G_7_&sz=w1200" alt="Casal Premium" loading="lazy"></div>
               <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1wHZMUrVssGLAxfQEbZkq_rHKL8OsGpfy&sz=w1200" alt="Casal Premium" loading="lazy"></div>
             </div>
             <button class="slide-prev" aria-label="Anterior">&#8249;</button>
             <button class="slide-next" aria-label="Próximo">&#8250;</button>
             <div class="slide-dots-r"></div>
-            <span class="slide-counter">1 / 21</span>
+            <span class="slide-counter">1 / 13</span>
           </div>
           <span class="room-tag sol">✦ Premium</span>
         </div>
@@ -439,7 +405,6 @@ footer{background:var(--tinta);color:rgba(255,254,250,.65);padding:64px 48px 28p
           <div class="room-slider" data-slider data-room="compartilhado">
             <div class="room-slides">
               <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1uyTyHvy4P1BmQWFE9fb3D1kjovTgBPIl&sz=w1200" alt="Quarto Compartilhado" loading="lazy"></div>
-              <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1Lok6Kk1x7DxAWe86qAzy8Hm9ruhRGYQ_&sz=w1200" alt="Quarto Compartilhado" loading="lazy"></div>
               <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1G7SsjxaZtczxD6hGgKfIx4YpSmo7GgPh&sz=w1200" alt="Quarto Compartilhado" loading="lazy"></div>
               <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=15T9ZojIANJP_Axb6Uc5Md1n-q9mm9T8v&sz=w1200" alt="Quarto Compartilhado" loading="lazy"></div>
               <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1UfvYqioDLuv4KBEINogc6JZ7N-4Ed8Lh&sz=w1200" alt="Quarto Compartilhado" loading="lazy"></div>
@@ -447,7 +412,7 @@ footer{background:var(--tinta);color:rgba(255,254,250,.65);padding:64px 48px 28p
             <button class="slide-prev" aria-label="Anterior">&#8249;</button>
             <button class="slide-next" aria-label="Próximo">&#8250;</button>
             <div class="slide-dots-r"></div>
-            <span class="slide-counter">1 / 5</span>
+            <span class="slide-counter">1 / 4</span>
           </div>
           <span class="room-tag mata">Dorm</span>
         </div>
@@ -468,25 +433,19 @@ footer{background:var(--tinta);color:rgba(255,254,250,.65);padding:64px 48px 28p
               <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1SKc82qXfD7d6V12meN0u4QFgf7eue999&sz=w1200" alt="Casal Deluxe" loading="lazy"></div>
               <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1xc6UMM8lltj_asja2_TDflPtrRqAOpn8&sz=w1200" alt="Casal Deluxe" loading="lazy"></div>
               <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1o-CEDSkdzZMCdhMmxCyGdVsC7TcSpwVX&sz=w1200" alt="Casal Deluxe" loading="lazy"></div>
-              <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1TkXX0hVO-N3P-z2YJK0LmiNvdlSfpsUS&sz=w1200" alt="Casal Deluxe" loading="lazy"></div>
               <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1HtnRygXwYGH845p4DVnB57dpMN7JtWhN&sz=w1200" alt="Casal Deluxe" loading="lazy"></div>
               <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1wSGT7p1T3W4ylIGzQfUkiBJx11-QJobz&sz=w1200" alt="Casal Deluxe" loading="lazy"></div>
-              <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1a8yWyE85Rh1BykqKP1kZZlIEOptVttW3&sz=w1200" alt="Casal Deluxe" loading="lazy"></div>
-              <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1dpiIXKI7_pMgZ1IyZapqVzqeBx-DRka_&sz=w1200" alt="Casal Deluxe" loading="lazy"></div>
               <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1xttiyCwA-IXFS_axrYYVlGG-iqO2Mr9D&sz=w1200" alt="Casal Deluxe" loading="lazy"></div>
-              <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1ug5pCPnw0ulp8xk1bjsPR_0nCeyoSqu4&sz=w1200" alt="Casal Deluxe" loading="lazy"></div>
               <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1CZ2t94u782vh7ELOMD0wbajCHBbWMcA7&sz=w1200" alt="Casal Deluxe" loading="lazy"></div>
               <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=14-bY_qaQ55hI0kAsC6LNleBTwHooIA_3&sz=w1200" alt="Casal Deluxe" loading="lazy"></div>
               <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1oF-S-UN7t63MDajS7OAgaNJy2ykOq1vp&sz=w1200" alt="Casal Deluxe" loading="lazy"></div>
-              <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1Sk1NOGmTyBi3NuOGBvi5sjiYRNDaR91l&sz=w1200" alt="Casal Deluxe" loading="lazy"></div>
               <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1OYaz1_T7xH0fIPjzpPHlK_Zm7JAA-BZ3&sz=w1200" alt="Casal Deluxe" loading="lazy"></div>
               <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1t_eK0Da03jHHJyldqpoVOno4rMj31nI2&sz=w1200" alt="Casal Deluxe" loading="lazy"></div>
-              <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1RVApK9TtEao3M8IW6khV7B4z4GqNJsjp&sz=w1200" alt="Casal Deluxe" loading="lazy"></div>
             </div>
             <button class="slide-prev" aria-label="Anterior">&#8249;</button>
             <button class="slide-next" aria-label="Próximo">&#8250;</button>
             <div class="slide-dots-r"></div>
-            <span class="slide-counter">1 / 18</span>
+            <span class="slide-counter">1 / 12</span>
           </div>
           <span class="room-tag">Deluxe</span>
         </div>
@@ -504,17 +463,14 @@ footer{background:var(--tinta);color:rgba(255,254,250,.65);padding:64px 48px 28p
           <div class="room-slider" data-slider data-room="familiaPremium">
             <div class="room-slides">
               <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1AKXMOxfwsytp_Pt6mabc3o7ElsHF9OL9&sz=w1200" alt="Família Premium" loading="lazy"></div>
-              <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1iKb8cn_GIb94SCDEnm8GcKCci7YlO9LS&sz=w1200" alt="Família Premium" loading="lazy"></div>
-              <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1LPyWMGGSWKqpgz-jJ7XZHhAwHeBt94yg&sz=w1200" alt="Família Premium" loading="lazy"></div>
               <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1C1fCy6e2sCuhuoe_LNB49Es7P0ESc_J6&sz=w1200" alt="Família Premium" loading="lazy"></div>
-              <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1EIY0CeVVj46oRwem7x1jdC7zZ8UxDNHf&sz=w1200" alt="Família Premium" loading="lazy"></div>
               <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1UIOAROd8dMMgZPu1ava2LFMiQlf_tC0i&sz=w1200" alt="Família Premium" loading="lazy"></div>
               <div class="room-slide"><img src="https://drive.google.com/thumbnail?id=1CUJ-D7j6LJfTYQ8JU9qjp98BI1jw26As&sz=w1200" alt="Família Premium" loading="lazy"></div>
             </div>
             <button class="slide-prev" aria-label="Anterior">&#8249;</button>
             <button class="slide-next" aria-label="Próximo">&#8250;</button>
             <div class="slide-dots-r"></div>
-            <span class="slide-counter">1 / 7</span>
+            <span class="slide-counter">1 / 4</span>
           </div>
           <span class="room-tag sol">Família</span>
         </div>
@@ -531,7 +487,7 @@ footer{background:var(--tinta);color:rgba(255,254,250,.65);padding:64px 48px 28p
         <div class="room-img">
           <div class="room-slider" data-slider data-room="individual">
             <div class="room-slides">
-              <div class="room-slide"><img src="https://static.wixstatic.com/media/c74c33_b42afa64fa654f51bafc7dfa27e9dc7c~mv2.png/v1/fill/w_600,h_500,al_c,q_90,enc_avif,quality_auto/c74c33_b42afa64fa654f51bafc7dfa27e9dc7c~mv2.png" alt="Individual Solteiro" loading="lazy"></div>
+              <div class="room-slide"><img src="https://static.wixstatic.com/media/c74c33_b42afa64fa654f51bafc7dfa27e9dc7c~mv2.png/v1/fill/w_1200,h_800,al_c,q_90,enc_avif,quality_auto/c74c33_b42afa64fa654f51bafc7dfa27e9dc7c~mv2.png" alt="Individual Solteiro" loading="lazy"></div>
             </div>
             <button class="slide-prev" aria-label="Anterior">&#8249;</button>
             <button class="slide-next" aria-label="Próximo">&#8250;</button>
@@ -553,7 +509,7 @@ footer{background:var(--tinta);color:rgba(255,254,250,.65);padding:64px 48px 28p
         <div class="room-img">
           <div class="room-slider" data-slider data-room="privativoAC">
             <div class="room-slides">
-              <div class="room-slide"><img src="https://static.wixstatic.com/media/c74c33_899275c19fe84b8b813792b17855c0e3~mv2.png/v1/fill/w_600,h_500,al_c,q_90,enc_avif,quality_auto/c74c33_899275c19fe84b8b813792b17855c0e3~mv2.png" alt="Privativo com AC" loading="lazy"></div>
+              <div class="room-slide"><img src="https://static.wixstatic.com/media/c74c33_899275c19fe84b8b813792b17855c0e3~mv2.png/v1/fill/w_1200,h_800,al_c,q_90,enc_avif,quality_auto/c74c33_899275c19fe84b8b813792b17855c0e3~mv2.png" alt="Privativo com AC" loading="lazy"></div>
             </div>
             <button class="slide-prev" aria-label="Anterior">&#8249;</button>
             <button class="slide-next" aria-label="Próximo">&#8250;</button>
@@ -580,7 +536,7 @@ footer{background:var(--tinta);color:rgba(255,254,250,.65);padding:64px 48px 28p
     <h2 class="h2 reveal r-d1" style="color:var(--branco)">Muito mais que<br>uma <em>hospedagem</em></h2>
     <p class="sub reveal r-d2" style="color:rgba(255,254,250,.6)">Pensada pra quem viaja com intenção — experiências que ficam na memória.</p>
     <div class="exp-grid">
-      <div class="exp-card reveal r-d1"><div class="exp-ico">🧘‍♀️</div><div class="exp-t">Yoga & Meditação</div><div class="exp-d">Sessões semanais abertas a todos os hóspedes. Grátis!</div></div>
+      <div class="exp-card reveal r-d1"><div class="exp-ico">🧘‍♀️</div><div class="exp-t">Yoga & Meditação</div><div class="exp-d">As sessões são sob demanda — abertas a todos os hóspedes. Grátis!</div></div>
       <div class="exp-card reveal r-d2"><div class="exp-ico">💆</div><div class="exp-t">Massagem Terapêutica</div><div class="exp-d">Recarregue as energias depois de um dia explorando o Rio.</div></div>
       <div class="exp-card reveal r-d3"><div class="exp-ico">🌿</div><div class="exp-t">Redário & Lounge</div><div class="exp-d">Espaço pra desacelerar e bater papo com gente do mundo todo.</div></div>
       <div class="exp-card reveal r-d4"><div class="exp-ico">🗺️</div><div class="exp-t">Passeios Personalizados</div><div class="exp-d">Cristo, Maracanã, praias secretas — a gente organiza tudo.</div></div>
@@ -724,7 +680,7 @@ footer{background:var(--tinta);color:rgba(255,254,250,.65);padding:64px 48px 28p
         </div>
         <div class="faq-item reveal r-d2">
           <button class="faq-q" onclick="toggleFaq(this)">As sessões de yoga e meditação são pagas? <span class="faq-icon">+</span></button>
-          <div class="faq-a">As sessões semanais de yoga e meditação são <strong>gratuitas para hóspedes</strong>. Acontecem às sextas-feiras. Passeios holísticos externos têm custo adicional — pergunte na recepção sobre os pacotes disponíveis.</div>
+          <div class="faq-a">As sessões de yoga e meditação são <strong>sob demanda</strong> — organizamos conforme o interesse e a disponibilidade dos hóspedes. São <strong>gratuitas para hóspedes</strong>. Passeios holísticos externos têm custo adicional — pergunte na recepção sobre os pacotes disponíveis.</div>
         </div>
         <div class="faq-item reveal r-d3">
           <button class="faq-q" onclick="toggleFaq(this)">Tem serviço de lavanderia? <span class="faq-icon">+</span></button>
@@ -880,12 +836,12 @@ var galleryPool=[{s:'https://drive.google.com/thumbnail?id=1n2dzWVrfh4HKpPgp4L2w
 
 // Room image pools
 var roomPool={
-  casalPremium:[{s:'https://drive.google.com/thumbnail?id=1qT8kWJ0LPQBNIvg94NX3rZMjeIwL0NXu&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1xDcaOlbecu5prIIXucq-Z0E-P7uUEDvP&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1OteoEz1hkCnPBuH0t_sFJ7JAOlWGQvHK&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=192UhjkDCR8EIUUuLAX4w19c0lZYUmWhh&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1DFpgnt2ST7sJm8CpWiSmAaR9yCccfYUn&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1TDkioAh0o8bfZIBq1VxCu5KpGi265GyU&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=15lMSig3_PfYzE2eW5uK2fAa4S0zH08xU&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=18r1o1_NIwicm2555aB2P-Skjcls_am5f&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1HdIliaUtP8L8ds3bWCwN9ZWBPmZolA4N&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1UEa-7rRGl0MT2rTN0EMl98SjV3tltXbJ&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1VEI8NyyZ5E9bAoUEHV5uAs80mtRvYjzw&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1odilzxKMVn31N2Tpa5UsK2aDwxmhWrzn&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1GpUY1NZTp2-H3-GTxOo053Qv3kx_qmLG&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1dQwyqas87DJLeZzgZUirrreE-4QMAySR&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1ZINUQZbxap3rRs1_xb3Jrvq3Sk5ABw3d&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=15yH0vsakfV6Z_wXgzPodGC9CkKrJNrP_&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1eaEHiprf_9HhcWejDbeOI83gUYCkxQoi&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1vuoHGoEYTtSb7V1mgoVrqjUPKjU3_gXv&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1QhRGx9E1eEl_vMBglshXka6XuqIJZiDd&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1HtuD3QNLOr-WoSPR41mu_jZUzlz2G_7_&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1wHZMUrVssGLAxfQEbZkq_rHKL8OsGpfy&sz=w1200'}],
-  compartilhado:[{s:'https://drive.google.com/thumbnail?id=1uyTyHvy4P1BmQWFE9fb3D1kjovTgBPIl&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1Lok6Kk1x7DxAWe86qAzy8Hm9ruhRGYQ_&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1G7SsjxaZtczxD6hGgKfIx4YpSmo7GgPh&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=15T9ZojIANJP_Axb6Uc5Md1n-q9mm9T8v&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1UfvYqioDLuv4KBEINogc6JZ7N-4Ed8Lh&sz=w1200'}],
-  casalDeluxe:[{s:'https://drive.google.com/thumbnail?id=1fQAPcOdNzKNMdkAnsmacCQ4a1HID7CrO&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1SKc82qXfD7d6V12meN0u4QFgf7eue999&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1xc6UMM8lltj_asja2_TDflPtrRqAOpn8&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1o-CEDSkdzZMCdhMmxCyGdVsC7TcSpwVX&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1TkXX0hVO-N3P-z2YJK0LmiNvdlSfpsUS&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1HtnRygXwYGH845p4DVnB57dpMN7JtWhN&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1wSGT7p1T3W4ylIGzQfUkiBJx11-QJobz&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1a8yWyE85Rh1BykqKP1kZZlIEOptVttW3&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1dpiIXKI7_pMgZ1IyZapqVzqeBx-DRka_&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1xttiyCwA-IXFS_axrYYVlGG-iqO2Mr9D&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1ug5pCPnw0ulp8xk1bjsPR_0nCeyoSqu4&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1CZ2t94u782vh7ELOMD0wbajCHBbWMcA7&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=14-bY_qaQ55hI0kAsC6LNleBTwHooIA_3&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1oF-S-UN7t63MDajS7OAgaNJy2ykOq1vp&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1Sk1NOGmTyBi3NuOGBvi5sjiYRNDaR91l&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1OYaz1_T7xH0fIPjzpPHlK_Zm7JAA-BZ3&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1t_eK0Da03jHHJyldqpoVOno4rMj31nI2&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1RVApK9TtEao3M8IW6khV7B4z4GqNJsjp&sz=w1200'}],
-  familiaPremium:[{s:'https://drive.google.com/thumbnail?id=1AKXMOxfwsytp_Pt6mabc3o7ElsHF9OL9&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1iKb8cn_GIb94SCDEnm8GcKCci7YlO9LS&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1LPyWMGGSWKqpgz-jJ7XZHhAwHeBt94yg&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1C1fCy6e2sCuhuoe_LNB49Es7P0ESc_J6&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1EIY0CeVVj46oRwem7x1jdC7zZ8UxDNHf&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1UIOAROd8dMMgZPu1ava2LFMiQlf_tC0i&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1CUJ-D7j6LJfTYQ8JU9qjp98BI1jw26As&sz=w1200'}],
-  individual:[{s:'https://static.wixstatic.com/media/c74c33_b42afa64fa654f51bafc7dfa27e9dc7c~mv2.png/v1/fill/w_600,h_500,al_c,q_90,enc_avif,quality_auto/c74c33_b42afa64fa654f51bafc7dfa27e9dc7c~mv2.png'}],
-  privativoAC:[{s:'https://static.wixstatic.com/media/c74c33_899275c19fe84b8b813792b17855c0e3~mv2.png/v1/fill/w_600,h_500,al_c,q_90,enc_avif,quality_auto/c74c33_899275c19fe84b8b813792b17855c0e3~mv2.png'}]
+  casalPremium:[{s:'https://drive.google.com/thumbnail?id=1qT8kWJ0LPQBNIvg94NX3rZMjeIwL0NXu&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1xDcaOlbecu5prIIXucq-Z0E-P7uUEDvP&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1OteoEz1hkCnPBuH0t_sFJ7JAOlWGQvHK&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=192UhjkDCR8EIUUuLAX4w19c0lZYUmWhh&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1DFpgnt2ST7sJm8CpWiSmAaR9yCccfYUn&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=15lMSig3_PfYzE2eW5uK2fAa4S0zH08xU&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=18r1o1_NIwicm2555aB2P-Skjcls_am5f&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1HdIliaUtP8L8ds3bWCwN9ZWBPmZolA4N&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1GpUY1NZTp2-H3-GTxOo053Qv3kx_qmLG&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1ZINUQZbxap3rRs1_xb3Jrvq3Sk5ABw3d&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1eaEHiprf_9HhcWejDbeOI83gUYCkxQoi&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1vuoHGoEYTtSb7V1mgoVrqjUPKjU3_gXv&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1wHZMUrVssGLAxfQEbZkq_rHKL8OsGpfy&sz=w1200'}],
+  compartilhado:[{s:'https://drive.google.com/thumbnail?id=1uyTyHvy4P1BmQWFE9fb3D1kjovTgBPIl&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1G7SsjxaZtczxD6hGgKfIx4YpSmo7GgPh&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=15T9ZojIANJP_Axb6Uc5Md1n-q9mm9T8v&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1UfvYqioDLuv4KBEINogc6JZ7N-4Ed8Lh&sz=w1200'}],
+  casalDeluxe:[{s:'https://drive.google.com/thumbnail?id=1fQAPcOdNzKNMdkAnsmacCQ4a1HID7CrO&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1SKc82qXfD7d6V12meN0u4QFgf7eue999&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1xc6UMM8lltj_asja2_TDflPtrRqAOpn8&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1o-CEDSkdzZMCdhMmxCyGdVsC7TcSpwVX&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1HtnRygXwYGH845p4DVnB57dpMN7JtWhN&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1wSGT7p1T3W4ylIGzQfUkiBJx11-QJobz&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1xttiyCwA-IXFS_axrYYVlGG-iqO2Mr9D&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1CZ2t94u782vh7ELOMD0wbajCHBbWMcA7&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=14-bY_qaQ55hI0kAsC6LNleBTwHooIA_3&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1oF-S-UN7t63MDajS7OAgaNJy2ykOq1vp&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1OYaz1_T7xH0fIPjzpPHlK_Zm7JAA-BZ3&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1t_eK0Da03jHHJyldqpoVOno4rMj31nI2&sz=w1200'}],
+  familiaPremium:[{s:'https://drive.google.com/thumbnail?id=1AKXMOxfwsytp_Pt6mabc3o7ElsHF9OL9&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1C1fCy6e2sCuhuoe_LNB49Es7P0ESc_J6&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1UIOAROd8dMMgZPu1ava2LFMiQlf_tC0i&sz=w1200'},{s:'https://drive.google.com/thumbnail?id=1CUJ-D7j6LJfTYQ8JU9qjp98BI1jw26As&sz=w1200'}],
+  individual:[{s:'https://static.wixstatic.com/media/c74c33_b42afa64fa654f51bafc7dfa27e9dc7c~mv2.png/v1/fill/w_1200,h_800,al_c,q_90,enc_avif,quality_auto/c74c33_b42afa64fa654f51bafc7dfa27e9dc7c~mv2.png'}],
+  privativoAC:[{s:'https://static.wixstatic.com/media/c74c33_899275c19fe84b8b813792b17855c0e3~mv2.png/v1/fill/w_1200,h_800,al_c,q_90,enc_avif,quality_auto/c74c33_899275c19fe84b8b813792b17855c0e3~mv2.png'}]
 };
 
 function openLBWith(pool,idx){
@@ -904,6 +860,7 @@ document.addEventListener('keydown',function(e){
 });
 
 // ── Room Sliders ──────────────────────────────────────────────────────────────
+var activeSlider=null;
 function initSliders(){
   document.querySelectorAll('[data-slider]').forEach(function(slider){
     var slides=slider.querySelector('.room-slides');
@@ -912,6 +869,7 @@ function initSliders(){
     var counter=slider.querySelector('.slide-counter');
     var roomKey=slider.getAttribute('data-room');
     var cur=0,total=items.length;
+    var autoTimer=null;
 
     if(total>1){
       items.forEach(function(_,i){
@@ -921,12 +879,8 @@ function initSliders(){
         d.onclick=function(e){e.stopPropagation();goTo(i);};
         dotsC.appendChild(d);
       });
-    } else {
-      var pb=slider.querySelector('.slide-prev');
-      var nb=slider.querySelector('.slide-next');
-      if(pb)pb.style.display='none';
-      if(nb)nb.style.display='none';
-      if(counter)counter.style.display='none';
+    } else if(counter){
+      counter.style.display='none';
     }
 
     function goTo(n){
@@ -936,36 +890,61 @@ function initSliders(){
       if(counter)counter.textContent=(cur+1)+' / '+total;
     }
 
-    var prevBtn=slider.querySelector('.slide-prev');
-    var nextBtn=slider.querySelector('.slide-next');
-    if(prevBtn)prevBtn.onclick=function(e){e.stopPropagation();goTo(cur-1);};
-    if(nextBtn)nextBtn.onclick=function(e){e.stopPropagation();goTo(cur+1);};
-
-    // Auto-advance: pauses on hover (desktop) and when out of viewport (mobile)
-    if(total>1){
-      var autoTimer=null;
-      var hovered=false;
-      function startAuto(){if(!hovered&&!autoTimer)autoTimer=setInterval(function(){goTo(cur+1);},4000);}
-      function stopAuto(){clearInterval(autoTimer);autoTimer=null;}
-      slider.addEventListener('mouseenter',function(){hovered=true;stopAuto();});
-      slider.addEventListener('mouseleave',function(){hovered=false;startAuto();});
-      var io=new IntersectionObserver(function(entries){
-        if(entries[0].isIntersecting){startAuto();}else{stopAuto();}
-      },{threshold:0.4});
-      io.observe(slider);
+    function startAuto(){
+      if(total<=1||autoTimer)return;
+      autoTimer=setInterval(function(){goTo(cur+1);},3000);
+    }
+    function stopAuto(){
+      clearInterval(autoTimer);
+      autoTimer=null;
     }
 
-    // Click image → open lightbox at current slide
+    slider._startAuto=startAuto;
+    slider._stopAuto=stopAuto;
+
+    var io=new IntersectionObserver(function(entries){
+      var entry=entries[0];
+      if(entry.isIntersecting&&entry.intersectionRatio>=0.35){
+        if(activeSlider&&activeSlider!==slider)activeSlider._stopAuto();
+        activeSlider=slider;
+        stopAuto();
+        goTo(cur);
+        startAuto();
+      } else if(activeSlider===slider){
+        stopAuto();
+        activeSlider=null;
+      }
+    },{threshold:[0.35,0.55,0.75]});
+    io.observe(slider);
+
     slides.style.cursor='pointer';
     slides.addEventListener('click',function(e){
-      if(e.target.closest('.slide-prev,.slide-next,.sdot'))return;
-      if(roomKey && roomPool[roomKey]){
-        openLBWith(roomPool[roomKey],cur);
-      }
+      if(e.target.closest('.sdot'))return;
+      if(roomKey&&roomPool[roomKey])openLBWith(roomPool[roomKey],cur);
     });
   });
 }
 initSliders();
+
+var scrollPauseTimer;
+window.addEventListener('scroll',function(){
+  clearTimeout(scrollPauseTimer);
+  scrollPauseTimer=setTimeout(function(){
+    var best=null,bestRatio=0;
+    document.querySelectorAll('[data-slider]').forEach(function(slider){
+      var rect=slider.getBoundingClientRect();
+      var visible=Math.max(0,Math.min(rect.bottom,window.innerHeight)-Math.max(rect.top,0));
+      var ratio=visible/(rect.height||1);
+      if(ratio>bestRatio){bestRatio=ratio;best=slider;}
+    });
+    if(best&&bestRatio>=0.35){
+      if(activeSlider&&activeSlider!==best)activeSlider._stopAuto();
+      activeSlider=best;
+      best._stopAuto();
+      best._startAuto();
+    }
+  },180);
+},{passive:true});
 
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
