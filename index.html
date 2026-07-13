@@ -33,6 +33,13 @@ nav.scrolled{padding:12px 48px;box-shadow:0 4px 28px rgba(15,42,31,.08);}
 .nav-cta:hover{background:var(--rosa-d);}
 .nav-reserva{background:var(--tinta);color:var(--branco)!important;opacity:1!important;padding:10px 20px;border-radius:50px;transition:background .2s;}
 .nav-reserva:hover{background:var(--tinta-l);}
+.lang-switch{display:flex;align-items:center;gap:6px;}
+.lang-btn{background:none;border:2px solid transparent;border-radius:50%;width:34px;height:34px;padding:0;font-size:1.15rem;line-height:1;cursor:pointer;transition:border-color .2s,transform .2s,box-shadow .2s;}
+.lang-btn:hover{transform:scale(1.08);}
+.lang-btn.active{border-color:var(--mata);box-shadow:0 0 0 2px rgba(60,122,87,.2);}
+#google_translate_element{display:none;}
+body{top:0!important;}
+.goog-te-banner-frame,.skiptranslate,.goog-te-gadget,.goog-te-balloon-frame,#goog-gt-tt{display:none!important;}
 .nav-toggle{display:none;flex-direction:column;gap:5px;}
 .nav-toggle span{width:24px;height:2px;background:var(--tinta);border-radius:2px;}
 .nav-drawer{display:none;position:fixed;inset:0;z-index:1100;background:var(--tinta);flex-direction:column;align-items:center;justify-content:center;gap:26px;}
@@ -273,7 +280,13 @@ footer{background:var(--tinta);color:rgba(255,254,250,.65);padding:64px 48px 28p
 
 <nav id="navbar">
   <a href="#" class="nav-logo">Casinha <em>Tropical</em></a>
+  <div id="google_translate_element" aria-hidden="true"></div>
   <div class="nav-links">
+    <div class="lang-switch" aria-label="Idioma">
+      <button type="button" class="lang-btn active" data-lang="pt" title="Português (Brasil)" aria-label="Português">🇧🇷</button>
+      <button type="button" class="lang-btn" data-lang="en" title="English (USA)" aria-label="English">🇺🇸</button>
+      <button type="button" class="lang-btn" data-lang="es" title="Español" aria-label="Español">🇪🇸</button>
+    </div>
     <a href="#sobre">O Hostel</a>
     <a href="#quartos">Quartos</a>
     <a href="#exp">Experiências</a>
@@ -287,6 +300,11 @@ footer{background:var(--tinta);color:rgba(255,254,250,.65);padding:64px 48px 28p
 
 <div class="nav-drawer" id="navDrawer">
   <button class="drawer-close" onclick="toggleDrawer()">✕</button>
+  <div class="lang-switch" style="margin-bottom:8px;">
+    <button type="button" class="lang-btn active" data-lang="pt" title="Português (Brasil)" aria-label="Português">🇧🇷</button>
+    <button type="button" class="lang-btn" data-lang="en" title="English (USA)" aria-label="English">🇺🇸</button>
+    <button type="button" class="lang-btn" data-lang="es" title="Español" aria-label="Español">🇪🇸</button>
+  </div>
   <a href="#sobre" onclick="toggleDrawer()">O Hostel</a>
   <a href="#quartos" onclick="toggleDrawer()">Quartos</a>
   <a href="#exp" onclick="toggleDrawer()">Experiências</a>
@@ -898,6 +916,65 @@ initSliders();
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});
 });
+
+// ── Language switcher (Google Translate) ─────────────────────────────────────
+function googleTranslateElementInit(){
+  new google.translate.TranslateElement({pageLanguage:'pt',includedLanguages:'pt,en,es',autoDisplay:false},'google_translate_element');
+  setTimeout(initLangSwitcher,600);
+}
+
+function setGoogTransCookie(lang){
+  const host=document.location.hostname;
+  const clear='googtrans=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;';
+  document.cookie=clear;
+  document.cookie=clear+'domain='+host+';';
+  if(lang!=='pt'){
+    const val='googtrans=/pt/'+lang+';path=/;';
+    document.cookie=val;
+    document.cookie=val+'domain='+host+';';
+  }
+}
+
+function getCurrentLang(){
+  const m=document.cookie.match(/googtrans=\/pt\/([a-z]{2})/);
+  return m?m[1]:'pt';
+}
+
+function updateLangButtons(lang){
+  document.querySelectorAll('.lang-btn').forEach(btn=>{
+    btn.classList.toggle('active',btn.dataset.lang===lang);
+  });
+}
+
+function switchLang(lang){
+  if(lang===getCurrentLang())return;
+  setGoogTransCookie(lang);
+  localStorage.setItem('casinha-lang',lang);
+  const combo=document.querySelector('.goog-te-combo');
+  if(combo){
+    combo.value=lang;
+    combo.dispatchEvent(new Event('change'));
+    updateLangButtons(lang);
+  }else{
+    location.reload();
+  }
+}
+
+function initLangSwitcher(){
+  const saved=localStorage.getItem('casinha-lang');
+  const current=getCurrentLang();
+  const lang=saved||current;
+  updateLangButtons(lang);
+  if(saved&&saved!==current){
+    setGoogTransCookie(saved);
+    location.reload();
+    return;
+  }
+  document.querySelectorAll('.lang-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>switchLang(btn.dataset.lang));
+  });
+}
 </script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
