@@ -33,8 +33,10 @@ nav.scrolled{padding:12px 48px;box-shadow:0 4px 28px rgba(15,42,31,.08);}
 .nav-cta:hover{background:var(--rosa-d);}
 .nav-reserva{background:var(--tinta);color:var(--branco)!important;opacity:1!important;padding:10px 20px;border-radius:50px;transition:background .2s;}
 .nav-reserva:hover{background:var(--tinta-l);}
-.lang-switch{display:flex;align-items:center;gap:6px;}
-.lang-btn{background:none;border:2px solid transparent;border-radius:50%;width:34px;height:34px;padding:0;font-size:1.15rem;line-height:1;cursor:pointer;transition:border-color .2s,transform .2s,box-shadow .2s;}
+.nav-links{display:flex;align-items:center;gap:26px;}
+.nav-actions{display:flex;align-items:center;gap:16px;margin-left:auto;}
+.lang-switch{display:flex;align-items:center;gap:4px;background:rgba(255,254,250,.92);padding:5px 10px;border-radius:50px;border:1px solid rgba(15,42,31,.12);box-shadow:0 2px 10px rgba(15,42,31,.08);flex-shrink:0;}
+.lang-btn{background:none;border:2px solid transparent;border-radius:50%;width:36px;height:36px;padding:0;font-size:1.25rem;line-height:1;cursor:pointer;transition:border-color .2s,transform .2s,box-shadow .2s;}
 .lang-btn:hover{transform:scale(1.08);}
 .lang-btn.active{border-color:var(--mata);box-shadow:0 0 0 2px rgba(60,122,87,.2);}
 #google_translate_element{display:none;}
@@ -236,6 +238,9 @@ footer{background:var(--tinta);color:rgba(255,254,250,.65);padding:64px 48px 28p
 @media(max-width:1024px){
   nav,#hero,section,.stats-band,.cta-band,footer{padding-left:24px;padding-right:24px;}
   .nav-links{display:none;}.nav-toggle{display:flex;}
+  .nav-actions{gap:10px;}
+  .lang-switch{padding:4px 8px;}
+  .lang-btn{width:32px;height:32px;font-size:1.1rem;}
   .hero-grid{grid-template-columns:1fr;}
   .hero-photo-wrap{aspect-ratio:3/4;max-width:360px;margin:0 auto;}
   .sobre-grid{grid-template-columns:1fr;}.sobre-imgs{height:380px;}
@@ -281,30 +286,27 @@ footer{background:var(--tinta);color:rgba(255,254,250,.65);padding:64px 48px 28p
 <nav id="navbar">
   <a href="#" class="nav-logo">Casinha <em>Tropical</em></a>
   <div id="google_translate_element" aria-hidden="true"></div>
-  <div class="nav-links">
+  <div class="nav-actions">
     <div class="lang-switch" aria-label="Idioma">
       <button type="button" class="lang-btn active" data-lang="pt" title="Português (Brasil)" aria-label="Português">🇧🇷</button>
       <button type="button" class="lang-btn" data-lang="en" title="English (USA)" aria-label="English">🇺🇸</button>
       <button type="button" class="lang-btn" data-lang="es" title="Español" aria-label="Español">🇪🇸</button>
     </div>
-    <a href="#sobre">O Hostel</a>
-    <a href="#quartos">Quartos</a>
-    <a href="#exp">Experiências</a>
-    <a href="#galeria">Galeria</a>
-    <a href="#faq">FAQ</a>
-    <a href="#loc">Localização</a>
-    <a href="https://book.securebookings.net/roomrate?id=b48d8648-602d-1724702937-4713-8718-91b71d4b564d&lang=br" target="_blank" class="nav-reserva">🗓 Reservar</a>
+    <div class="nav-links">
+      <a href="#sobre">O Hostel</a>
+      <a href="#quartos">Quartos</a>
+      <a href="#exp">Experiências</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#faq">FAQ</a>
+      <a href="#loc">Localização</a>
+      <a href="https://book.securebookings.net/roomrate?id=b48d8648-602d-1724702937-4713-8718-91b71d4b564d&lang=br" target="_blank" class="nav-reserva">🗓 Reservar</a>
+    </div>
+    <div class="nav-toggle" id="navToggle" onclick="toggleDrawer()"><span></span><span></span><span></span></div>
   </div>
-  <div class="nav-toggle" id="navToggle" onclick="toggleDrawer()"><span></span><span></span><span></span></div>
 </nav>
 
 <div class="nav-drawer" id="navDrawer">
   <button class="drawer-close" onclick="toggleDrawer()">✕</button>
-  <div class="lang-switch" style="margin-bottom:8px;">
-    <button type="button" class="lang-btn active" data-lang="pt" title="Português (Brasil)" aria-label="Português">🇧🇷</button>
-    <button type="button" class="lang-btn" data-lang="en" title="English (USA)" aria-label="English">🇺🇸</button>
-    <button type="button" class="lang-btn" data-lang="es" title="Español" aria-label="Español">🇪🇸</button>
-  </div>
   <a href="#sobre" onclick="toggleDrawer()">O Hostel</a>
   <a href="#quartos" onclick="toggleDrawer()">Quartos</a>
   <a href="#exp" onclick="toggleDrawer()">Experiências</a>
